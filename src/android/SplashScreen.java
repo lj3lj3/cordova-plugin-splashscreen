@@ -98,12 +98,13 @@ public class SplashScreen extends CordovaPlugin {
         }
         // Make WebView invisible while loading URL
         // CB-11326 Ensure we're calling this on UI thread
-        cordova.getActivity().runOnUiThread(new Runnable() {
+        // EDIT: DO NOT hide WebView, 'cause this will show a white screen after splash hide
+        /*cordova.getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 getView().setVisibility(View.INVISIBLE);
             }
-        });
+        });*/
         int drawableId = getSplashId();
 
         // Save initial orientation.
